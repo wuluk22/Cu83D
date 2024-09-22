@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clegros <clegros@student.s19.be>           +#+  +:+       +#+        */
+/*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:26 by clegros           #+#    #+#             */
-/*   Updated: 2024/08/27 10:03:28 by clegros          ###   ########.fr       */
+/*   Updated: 2024/09/22 15:55:49 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 # define SCREEN_HEIGHT 800
 # define MAP_WIDTH 10
 # define MAP_HEIGHT 10
-# define CEILING_COLOR create_rgb(68, 32, 32)
-# define FLOOR_COLOR   create_rgb(155, 0, 0)
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
@@ -44,6 +42,14 @@ typedef struct s_map
 	int	**worldMap;
 	int	map_height;
 	int	*map_width;
+	char	**map; //alion
+	int		x;
+	int		y;
+	int		player;
+	int		fc;
+	int		cc;
+	int		x_map_size;
+	int		y_map_size;
 }	t_map;
 
 typedef struct s_env
@@ -97,6 +103,16 @@ int		mouse_hook(int x, int y, t_env *e);
 int		key_press(int keycode, t_env *e);
 int		key_release(int keycode, t_env *e);
 void	move_player(t_env *e);
+//-----------parsing_help.c
+int 	problem_found(t_env *e, char *line, int i);
+void	ft_exit(t_env *e, char *str, int i);
+void	free_map(char **map, int i);
+int		check_name(char *map_name);
+void	free_struct(t_env *e);
+//-----------parsing_map.c
+int		parse_map(t_env *e, t_map *map, int fd);
+//-----------parsing.c
+int		parsing(int argc, char **argv, t_map *map, t_env *e);
 //-----------raycasting.c
 void	load_map(t_env *e, const char *filename);
 void	display_map(int **map, int map_height, int *map_width);

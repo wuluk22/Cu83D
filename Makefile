@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: clegros <clegros@student.s19.be>           +#+  +:+       +#+         #
+#    By: alion <alion@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 10:03:35 by clegros           #+#    #+#              #
-#    Updated: 2024/08/27 10:03:37 by clegros          ###   ########.fr        #
+#    Updated: 2024/09/22 15:11:03 by alion            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ SRC     = main.c\
 			keymap.c\
 			keymap_utils.c\
 			map.c\
+			parsing_help.c\
+			parsing_map.c\
+			parsing.c\
 			raycasting.c\
 			render.c\
 			render_utils.c\

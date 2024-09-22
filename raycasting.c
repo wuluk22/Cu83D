@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clegros <clegros@student.s19.be>           +#+  +:+       +#+        */
+/*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 12:34:25 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/05 12:34:27 by clegros          ###   ########.fr       */
+/*   Updated: 2024/09/22 15:16:28 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,14 @@ void	draw_ceiling_and_floor(t_env *e, int x)
 	while (y < e->draw_start)
 	{
 		if (y >= 0 && y < SCREEN_HEIGHT)
-			e->data[y * SCREEN_WIDTH + x] = CEILING_COLOR;
+			e->data[y * SCREEN_WIDTH + x] = e->map.cc;
 		y++;
 	}
 	y = e->draw_end + 1;
 	while (y < SCREEN_HEIGHT)
 	{
 		if (y >= 0 && y < SCREEN_HEIGHT)
-			e->data[y * SCREEN_WIDTH + x] = FLOOR_COLOR;
+			e->data[y * SCREEN_WIDTH + x] = e->map.fc;
 		y++;
 	}
 }

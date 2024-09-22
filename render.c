@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clegros <clegros@student.s19.be>           +#+  +:+       +#+        */
+/*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 12:34:31 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/05 12:34:33 by clegros          ###   ########.fr       */
+/*   Updated: 2024/09/22 15:21:40 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3D.h"
 
+/*
 int	create_rgb(int r, int g, int b)
 {
 	return ((r << 16) | (g << 8) | b);
@@ -23,7 +24,7 @@ void	load_texture(t_env *e)
 	load_image(e, e->texture[TEXTURE_SOUTH], "textures/33.xpm");
 	load_image(e, e->texture[TEXTURE_EAST], "textures/29.xpm");
 	load_image(e, e->texture[TEXTURE_WEST], "textures/30.xpm");
-}
+}*/
 
 void	load_image(t_env *e, int *texture, char *path)
 {

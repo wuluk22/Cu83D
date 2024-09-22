@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clegros <clegros@student.s19.be>           +#+  +:+       +#+        */
+/*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:44 by clegros           #+#    #+#             */
-/*   Updated: 2024/08/27 10:04:27 by clegros          ###   ########.fr       */
+/*   Updated: 2024/09/22 15:24:26 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,25 @@ static void	init(t_env *e)
 	e->map.worldMap = NULL;
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_env	e;
+	t_map	map;
 
 	e.mlx = mlx_init();
+	if (!e.mlx)
+		ft_exit(&e, "Problem with data.mlx", 0);
+	map.map = ft_calloc((10000), sizeof(char *)); // a modifier pour la bonne taille aml
+	if (!map.map)
+		ft_exit(&e, "Problem with map.map", 0);
+	parsing(argc, argv, &map, &e);
 	e.win = mlx_new_window(e.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D");
 	e.img = mlx_new_image(e.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	e.data = (int *)mlx_get_data_addr(e.img, &e.bpp, &e.sizeline, &e.endian);
 	init(&e);
-	load_map(&e, "map.cub");
+	load_map(&e, "map.cub"); // a modifier pour avoir avec argument
 	display_map(e.map.worldMap, e.map.map_height, e.map.map_width);
-	load_texture(&e);
+//	load_texture(&e);
 	mlx_hook(e.win, 2, 1L << 0, key_press, &e);
 	mlx_hook(e.win, 3, 1L << 1, key_release, &e);
 	//mlx_hook(e.win, 6, 0, mouse_hook, &e);
