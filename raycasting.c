@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 12:34:25 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/22 15:16:28 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/23 18:33:42 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,14 @@ void	draw_ceiling_and_floor(t_env *e, int x)
 	while (y < e->draw_start)
 	{
 		if (y >= 0 && y < SCREEN_HEIGHT)
-			e->data[y * SCREEN_WIDTH + x] = e->map.cc;
+			e->data[y * SCREEN_WIDTH + x] = e->map.ceiling;
 		y++;
 	}
 	y = e->draw_end + 1;
 	while (y < SCREEN_HEIGHT)
 	{
 		if (y >= 0 && y < SCREEN_HEIGHT)
-			e->data[y * SCREEN_WIDTH + x] = e->map.fc;
+			e->data[y * SCREEN_WIDTH + x] = e->map.floor;
 		y++;
 	}
 }

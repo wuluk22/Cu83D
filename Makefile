@@ -6,7 +6,7 @@
 #    By: alion <alion@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 10:03:35 by clegros           #+#    #+#              #
-#    Updated: 2024/09/22 15:11:03 by alion            ###   ########.fr        #
+#    Updated: 2024/09/23 15:34:24 by alion            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC     = main.c\
 			keymap_utils.c\
 			map.c\
 			parsing_help.c\
+			parsing_info.c\
 			parsing_map.c\
 			parsing.c\
 			raycasting.c\

@@ -1,25 +1,6 @@
 #include "includes/cub3D.h"
 
-int problem_found(t_env *e, char *line, int i)
-{
-        free(line);
-        free_struct(e);
-		return (i);
-}
-
-void	ft_exit(t_env *e, char *str, int i)
-{
-	(void)e;
-	(void)i;
-	printf("Error\n");
-	printf("%s", str);
-//	if (i == 1)
-//		ft_exit_window(e);
-//	else
-		exit (1);
-}
-
-void	free_map(char **map, int i)
+void	free_map(char **map)
 {
 	int	j;
 
@@ -31,8 +12,21 @@ void	free_map(char **map, int i)
 		j++;
 	}
 	free(map);
-	if (i == 1)
-		exit (1);
+}
+
+int	problem_found(t_env *e, char *line, int i)
+{
+	(void)e;
+	free(line);
+	return (i);
+}
+
+void	ft_exit(t_env *e, char *str, int i)
+{
+	(void)e;
+	printf("Error\n");
+	printf("%s", str);
+	exit (i);
 }
 
 int	check_name(char *map_name)
@@ -40,20 +34,4 @@ int	check_name(char *map_name)
 	if (ft_strnstr(map_name, ".cub\0", ft_strlen(map_name)))
 		return (0);
 	return (1);
-}
-
-
-void	free_struct(t_env *e)
-{
-	int	i;
-
-	i = 0;
-	if (e->map.map)
-		while (e->map.map[i])
-			free(e->map.map[i++]);
-	free(e->map.map);
-//	if (e->img)
-//		mlx_delete_image(e->mlx, e->img);
-//	mlx_terminate(e->mlx);
-	exit (0);
 }
