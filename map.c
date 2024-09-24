@@ -93,12 +93,14 @@ static void	resize_map(t_env *e)
 	e->map.world_map = new_world_map;
 }
 
+
 void	load_map(t_env *e, const char *filename)
 {
 	int		fd;
 	char	*line;
 	int		row;
 	char	*tmp_line;
+	int		current_line;
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
@@ -106,12 +108,18 @@ void	load_map(t_env *e, const char *filename)
 		perror("Failed to open map file");
 		exit(1);
 	}
+	current_line = 0;
 	row = 0;
 	while (1)
 	{
 		tmp_line = get_next_line(fd);
 		if (tmp_line == NULL)
 			break ;
+		if (current_line++ < e->i)
+		{
+			free(tmp_line);
+			continue;
+		}
 		line = tmp_line;
 		resize_map(e);
 		parse_line(e, line, row);

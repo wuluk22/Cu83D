@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 	e.img = mlx_new_image(e.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	e.data = (int *)mlx_get_data_addr(e.img, &e.bpp, &e.sizeline, &e.endian);
 	init(&e);
-	load_map(&e, "map.cub"); // a modifier pour avoir avec argument
+	load_map(&e, argv[1]); // a modifier pour avoir avec argument
 	display_map(e.map.world_map, e.map.map_height, e.map.map_width);
 //	load_texture(&e);
 	mlx_hook(e.win, 2, 1L << 0, key_press, &e);
