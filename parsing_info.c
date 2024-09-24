@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:51:17 by alion             #+#    #+#             */
-/*   Updated: 2024/09/24 13:06:12 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/24 16:04:52 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ int	get_info(t_env *e, int fd)
 	char	*line;
 	int		infos;
 
+	e->i = 1;
 	infos = 0;
 	line = get_next_line(fd);
 	while (line && infos != 6 && infos >= 0)
@@ -128,6 +129,7 @@ int	get_info(t_env *e, int fd)
 		if (infos == 6)
 			break ;
 		line = get_next_line(fd);
+		e->i++;
 	}
 	if (e->map.no > 1 || e->map.so > 1 || e->map.ea > 1 || e->map.we > 1
 		|| e->map.fc > 1 || e->map.cc > 1 || e->map.ceiling == -1

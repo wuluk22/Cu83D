@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:26 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/24 12:52:08 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/24 16:03:10 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_map
 
 typedef struct s_env
 {
+	int		i;
 	void	*mlx;
 	void	*win;
 	void	*img;
@@ -110,11 +111,9 @@ int		key_press(int keycode, t_env *e);
 int		key_release(int keycode, t_env *e);
 void	move_player(t_env *e);
 //-----------parsing_help.c
-int		problem_found(t_env *e, char *line, int i);
 void	ft_exit(t_env *e, char *str, int i);
 void	free_map(char **map);
 int		check_name(char *map_name);
-void	free_struct(t_env *e);
 //-----------parsing_info.c
 int		get_info(t_env *e, int fd);
 //-----------parsing_map.c

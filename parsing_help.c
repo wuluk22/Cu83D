@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:06:26 by alion             #+#    #+#             */
-/*   Updated: 2024/09/24 14:24:21 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/24 16:01:43 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,9 @@ void	free_map(char **map)
 	free(map);
 }
 
-int	problem_found(t_env *e, char *line, int i)
-{
-	(void)e;
-	free(line);
-	return (i);
-}
-
 void	ft_exit(t_env *e, char *str, int i)
 {
-	if (e->map.map)
-		free_map(e->map.map);
+	(void)e;
 	printf("Error\n");
 	printf("%s", str);
 	exit (i);
