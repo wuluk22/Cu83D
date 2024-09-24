@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 18:18:58 by alion             #+#    #+#             */
-/*   Updated: 2024/09/23 18:19:00 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/24 12:56:22 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ int	check_border(t_map *map)
 		x = -1;
 		while (map->map[y][++x] != '\n')
 		{
-			if (map->map[y][x] == '0')
+			if (map->map[y][x] == '0' || map->map[y][x] == 'N'
+				|| map->map[y][x] == 'S' || map->map[y][x] == 'E'
+				|| map->map[y][x] == 'W')
 			{
 				if (recursive(map, x, y) == 1)
 					return (1);
@@ -103,18 +105,24 @@ int	check_inside(t_map *map)
 
 void	get_map(t_env *e, t_map *map, int fd)
 {
-	int	length_of_a_line;
+	int		length_of_a_line;
+	char	*line;
 
 	(void)e;
-	map->y = -1;
+	map->y = 0;
 	map->x_map_size = 0;
+	line = get_next_line(fd);
+	while (line[0] == '\n')
+		line = get_next_line(fd);
+	map->map[map->y] = line;
+	printf("%s", map->map[map->y]);
 	while (1)
 	{
 		map->y++;
 		map->map[map->y] = get_next_line(fd);
 		if (!map->map[map->y])
 			break ;
-		map->map[map->y][ft_strlen(map->map[map->y]) + 1] = '\n'; // a voir
+		map->map[map->y][ft_strlen(map->map[map->y]) + 1] = '\n';
 		printf("%s", map->map[map->y]);
 		length_of_a_line = (int)(ft_strlen(map->map[map->y]));
 		if (length_of_a_line > map->x_map_size)
@@ -122,5 +130,4 @@ void	get_map(t_env *e, t_map *map, int fd)
 	}
 	map->y_map_size = map->y;
 	printf("%d", map->y_map_size);
-	close(fd);
 }

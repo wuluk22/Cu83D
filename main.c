@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:44 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/22 15:24:26 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/24 12:52:08 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	init(t_env *e)
 	e->map_width = MAP_WIDTH;
 	e->map.map_height = 0;
 	e->map.map_width = NULL;
-	e->map.worldMap = NULL;
+	e->map.world_map = NULL;
 }
 
 int	main(int argc, char **argv)
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	e.data = (int *)mlx_get_data_addr(e.img, &e.bpp, &e.sizeline, &e.endian);
 	init(&e);
 	load_map(&e, "map.cub"); // a modifier pour avoir avec argument
-	display_map(e.map.worldMap, e.map.map_height, e.map.map_width);
+	display_map(e.map.world_map, e.map.map_height, e.map.map_width);
 //	load_texture(&e);
 	mlx_hook(e.win, 2, 1L << 0, key_press, &e);
 	mlx_hook(e.win, 3, 1L << 1, key_release, &e);

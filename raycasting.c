@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 12:34:25 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/23 18:33:42 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/24 12:52:08 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	perform_dda(t_env *e)
 		}
 		if (e->map_x >= 0 && e->map_x < e->map.map_height && \
 				e->map_y >= 0 && e->map_y < e->map.map_width[e->map_x])
-			if (e->map.worldMap[e->map_x][e->map_y] > 0)
+			if (e->map.world_map[e->map_x][e->map_y] > 0)
 				hit = 1;
 	}
 }

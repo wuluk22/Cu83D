@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/24 12:51:23 by alion             #+#    #+#             */
+/*   Updated: 2024/09/24 13:06:43 by alion            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/cub3D.h"
 
 void	init(t_env *e)
@@ -13,11 +25,12 @@ void	init(t_env *e)
 int	parse_map(t_env *e, t_map *map, int fd)
 {
 	get_map(e, map, fd);
+	close(fd);
 	if (check_inside(map) != 0)
 		return (1);
 	if (check_perso(map) != 0)
 		return (1);
-	if (check_border(map) != 0) // a mettre en dernier car modifie la map
+	if (check_border(map) != 0)
 		return (1);
 	return (0);
 }

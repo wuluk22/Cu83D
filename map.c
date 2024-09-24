@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clegros <clegros@student.s19.be>           +#+  +:+       +#+        */
+/*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 10:36:17 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/12 10:36:19 by clegros          ###   ########.fr       */
+/*   Updated: 2024/09/24 12:52:08 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@ static void	set_player_position(t_env *e, char direction, int row, int col)
 static void	process_character(t_env *e, char c, int row, int col)
 {
 	if (c == '1')
-		e->map.worldMap[row][col] = 1;
+		e->map.world_map[row][col] = 1;
 	else if (c == '0' || c == ' ')
-		e->map.worldMap[row][col] = 0;
+		e->map.world_map[row][col] = 0;
 	else if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
 		set_player_position(e, c, row, col);
-		e->map.worldMap[row][col] = 0;
+		e->map.world_map[row][col] = 0;
 	}
-	//ft_putnbr_fd(e->map.worldMap[row][col], 1);
+	//ft_putnbr_fd(e->map.world_map[row][col], 1);
 }
 
 static void	parse_line(t_env *e, char *line, int row)
@@ -59,8 +59,8 @@ static void	parse_line(t_env *e, char *line, int row)
 
 	trimmed_line = ft_strdup(line);
 	e->map.map_width[row] = ft_strlen(trimmed_line);
-	e->map.worldMap[row] = (int *)ft_calloc(e->map.map_width[row], sizeof(int));
-	if (!e->map.worldMap[row])
+	e->map.world_map[row] = (int *)ft_calloc(e->map.map_width[row], sizeof(int));
+	if (!e->map.world_map[row])
 		exit(1);
 	col = 0;
 	while (trimmed_line[col])
@@ -84,13 +84,13 @@ static void	resize_map(t_env *e)
 	{
 		ft_memcpy(new_map_width, e->map.map_width, \
 				e->map.map_height * sizeof(int));
-		ft_memcpy(new_world_map, e->map.worldMap, \
+		ft_memcpy(new_world_map, e->map.world_map, \
 				e->map.map_height * sizeof(int *));
 		free(e->map.map_width);
-		free(e->map.worldMap);
+		free(e->map.world_map);
 	}
 	e->map.map_width = new_map_width;
-	e->map.worldMap = new_world_map;
+	e->map.world_map = new_world_map;
 }
 
 void	load_map(t_env *e, const char *filename)

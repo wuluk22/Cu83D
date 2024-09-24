@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:26 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/23 18:08:17 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/24 12:52:08 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 typedef struct s_map
 {
-	int		**worldMap;
+	int		**world_map;
 	int		map_height;
 	int		*map_width;
 	char	**map; //alion
