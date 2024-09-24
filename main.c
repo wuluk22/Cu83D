@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:44 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/24 12:52:08 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/24 14:24:53 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,44 @@ static void	init(t_env *e)
 	e->map.map_width = NULL;
 	e->map.world_map = NULL;
 }
+int	size_fd(char ** argv, t_env *e)
+{
+	int		i;
+	int		fd;
+	char	*line;
+
+	printf("A\n");
+	i = 1;
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		ft_exit(e, "No fd\n", 0);
+	line = get_next_line(fd);
+	printf("B\n");
+	while (line != NULL)
+	{
+		printf("%d\n", i);
+		i++;
+		if (line == NULL)
+			break ;
+		line = get_next_line(fd);
+	}
+	printf("C\n");
+	close(fd);
+	printf("D\n");
+	return (i);
+}
 
 int	main(int argc, char **argv)
 {
 	t_env	e;
 	t_map	map;
+	int		i;
 
 	e.mlx = mlx_init();
 	if (!e.mlx)
 		ft_exit(&e, "Problem with data.mlx", 0);
-	map.map = ft_calloc((10000), sizeof(char *)); // a modifier pour la bonne taille aml
+	i = size_fd(argv, &e);
+	map.map = ft_calloc((i), sizeof(char *)); // a modifier pour la bonne taille aml
 	if (!map.map)
 		ft_exit(&e, "Problem with map.map", 0);
 	parsing(argc, argv, &map, &e);
