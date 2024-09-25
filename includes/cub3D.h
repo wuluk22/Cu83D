@@ -100,6 +100,7 @@ typedef struct s_env
 	t_map	map;
 }	t_env;
 
+void	cleanup(t_map map);
 //-----------keymap_utils.c
 void	move_forward_backward(t_env *e, double moveSpeed);
 void	move_left_right(t_env *e, double moveSpeed);
@@ -111,7 +112,7 @@ int		key_press(int keycode, t_env *e);
 int		key_release(int keycode, t_env *e);
 void	move_player(t_env *e);
 //-----------parsing_help.c
-void	ft_exit(t_env *e, char *str, int i);
+void	ft_exit(t_map map, char *str, int i);
 void	free_map(char **map);
 int		check_name(char *map_name);
 //-----------parsing_info.c

@@ -26,12 +26,12 @@ void	free_map(char **map)
 	free(map);
 }
 
-void	ft_exit(t_env *e, char *str, int i)
+void	ft_exit(t_map map, char *str, int i)
 {
-	(void)e;
+	cleanup(map);
 	printf("Error\n");
 	printf("%s", str);
-	exit (i);
+	exit(i);
 }
 
 int	check_name(char *map_name)

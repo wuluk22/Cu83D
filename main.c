@@ -42,7 +42,7 @@ static void	init(t_env *e)
 	e->map.world_map = NULL;
 }
 
-int	size_fd(char **argv, t_env *e)
+/*int	size_fd(char **argv, t_map map)
 {
 	int		i;
 	int		fd;
@@ -51,7 +51,7 @@ int	size_fd(char **argv, t_env *e)
 	i = 1;
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		ft_exit(e, "No fd\n", 0);
+		ft_exit(map, "No fd\n", 0);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -62,9 +62,9 @@ int	size_fd(char **argv, t_env *e)
 	}
 	close(fd);
 	return (i);
-}
+}*/
 
-static void	cleanup(t_map map)
+void	cleanup(t_map map)
 {
 	int	i;
 
@@ -86,12 +86,11 @@ int	main(int argc, char **argv)
 	int		i;
 
 	e.mlx = mlx_init();
-	if (!e.mlx)
-		ft_exit(&e, "Problem with data.mlx", 0);
-	i = size_fd(argv, &e);
+	//i = size_fd(argv, map);
+	i = 10000;
 	map.map = ft_calloc((i), sizeof(char *)); // a modifier pour la bonne taille aml
 	if (!map.map)
-		ft_exit(&e, "Problem with map.map", 0);
+		ft_exit(map, "Problem with map.map", 0);
 	parsing(argc, argv, &map, &e);
 	e.win = mlx_new_window(e.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D");
 	e.img = mlx_new_image(e.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -102,9 +101,9 @@ int	main(int argc, char **argv)
 	mlx_hook(e.win, 3, 1L << 1, key_release, &e);
 	mlx_loop_hook(e.mlx, render_scene, &e);
 	mlx_hook(e.win, 17, 1L << 2, ft_exit_window, &e);
+	//system("leaks cub3D");
 	mlx_loop(e.mlx);
 	cleanup(map);
-	//system("leaks cub3D");
 	return (0);
 }
 
