@@ -99,7 +99,6 @@ int	check_inside(t_map *map)
 				return (1);
 		}
 	}
-	printf("\n\n");
 	return (0);
 }
 

@@ -47,7 +47,7 @@ int	parsing(int argc, char **argv, t_map *map, t_env *e)
 	printf("nmbr of argc ok\n");
 	if (check_name(argv[1]) == 1)
 		ft_exit(*map, "Not a valid name\n", 0);
-	printf("name of file ok\n");
+	printf("name of file ok\n\n");
 	init(e);
 	if (get_info(e, fd) == 1)
 		ft_exit(*map, "No good info\n", 0);
