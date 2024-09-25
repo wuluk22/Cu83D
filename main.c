@@ -92,7 +92,7 @@ int	main(int argc, char **argv)
 	if (!e.mlx)
 		ft_printf("Error\nNot correct mlx\n");
 	i = size_fd(argv);
-	map.map = ft_calloc((i), sizeof(char *)); // a modifier pour la bonne taille aml
+	map.map = ft_calloc((i), sizeof(char *));
 	if (!map.map)
 		ft_exit(map, "Error\nNot correct malloc\n", 0);
 	parsing(argc, argv, &map, &e);
@@ -105,11 +105,11 @@ int	main(int argc, char **argv)
 	mlx_hook(e.win, 3, 1L << 1, key_release, &e);
 	mlx_loop_hook(e.mlx, render_scene, &e);
 	mlx_hook(e.win, 17, 1L << 2, ft_exit_window, &e);
-	//system("leaks cub3D");
 	mlx_loop(e.mlx);
 	cleanup(map);
 	return (0);
 }
 
+	//system("leaks cub3D");
 	//mlx_hook(e.win, 6, 0, mouse_hook, &e);
 	//mlx_mouse_hide(e.mlx, e.win);

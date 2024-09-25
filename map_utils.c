@@ -60,7 +60,7 @@ void	parse_line(t_env *e, char *line, int row)
 	e->map.map_width[row] = ft_strlen(trimmed_line);
 	e->map.world_map[row]
 		= (int *)ft_calloc(e->map.map_width[row], sizeof(int));
-	if (!e->map.world_map[row])
+	if (!e->map.world_map[row] || !trimmed_line)
 		exit(1);
 	col = 0;
 	while (trimmed_line[col])
