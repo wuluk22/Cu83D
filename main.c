@@ -63,21 +63,21 @@ int	size_fd(char **argv, t_env *e)
 	close(fd);
 	return (i);
 }
-static void cleanup(t_map map)
+
+static void	cleanup(t_map map)
 {
 	int	i;
 
 	i = 0;
-    while (i < map.map_height)
+	while (i < map.map_height)
 	{
-        if (map.map[i])
-            free(map.map[i]);
+		if (map.map[i])
+			free(map.map[i]);
 		i++;
-    }
-    free(map.map);
-    exit(0);
+	}
+	free(map.map);
+	exit(0);
 }
-
 
 int	main(int argc, char **argv)
 {

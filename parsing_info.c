@@ -143,8 +143,9 @@ int	get_info(t_env *e, int fd)
 		|| e->map.fc > 1 || e->map.cc > 1 || e->map.ceiling == -1
 		|| e->map.floor == -1)
 		infos = -1;
-	printf("info = %d\n", infos);
 	if (infos != 6)
 		return (1);
 	return (0);
 }
+
+//printf("info = %d\n", infos);
