@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 12:34:31 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/25 09:25:55 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/25 14:34:10 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	load_image(t_env *e, int *texture, char *path)
 	if (!img || e->img_width != 64 || e->img_height != 64)
 		return (1);
 	img_data = (int *)mlx_get_data_addr(img, &e->bpp, &e->sizeline, &e->endian);
+	if (!img_data)
+		return (1);
 	y = 0;
 	while (y < e->img_height)
 	{

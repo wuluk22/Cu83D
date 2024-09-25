@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:51:17 by alion             #+#    #+#             */
-/*   Updated: 2024/09/25 09:21:52 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/25 14:30:40 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_color(char *line, int t)
 	int		i;
 	int		j;
 
-	while (line[t] == ' ' || line[t] == '\t')
+	while (line[t] == ' ')
 		t++;
 	i = 0;
 	while (i < 3)
@@ -47,7 +47,7 @@ int	put_texture(char *line, int id, t_env *e, int side)
 	char	*texture;
 
 	i = 0;
-	while (line[id] == ' ' || line[id] == '\t')
+	while (line[id] == ' ')
 		id++;
 	id = id + 2;
 	texture = malloc(sizeof(char) * (ft_strlen(line)));
@@ -147,5 +147,3 @@ int	get_info(t_env *e, int fd)
 		return (1);
 	return (0);
 }
-
-//printf("info = %d\n", infos);

@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:44 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/25 13:09:47 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/25 14:25:04 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	size_fd(char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		printf("Error\nNo fd\n");
+		ft_printf("Error\nNo fd\n");
 		exit(1);
 	}
 	line = get_next_line(fd);
@@ -89,10 +89,12 @@ int	main(int argc, char **argv)
 	int		i;
 
 	e.mlx = mlx_init();
+	if (!e.mlx)
+		ft_printf("Error\nNot correct mlx\n");
 	i = size_fd(argv);
 	map.map = ft_calloc((i), sizeof(char *)); // a modifier pour la bonne taille aml
 	if (!map.map)
-		ft_exit(map, "Problem with map.map", 0);
+		ft_exit(map, "Error\nNot correct malloc\n", 0);
 	parsing(argc, argv, &map, &e);
 	e.win = mlx_new_window(e.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D");
 	e.img = mlx_new_image(e.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
