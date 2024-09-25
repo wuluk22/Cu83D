@@ -36,7 +36,12 @@ void	ft_exit(t_env *e, char *str, int i)
 
 int	check_name(char *map_name)
 {
-	if (ft_strnstr(map_name, ".cub\0", ft_strlen(map_name)))
+	int	len;
+
+	len = ft_strlen(map_name);
+	if (len < 4)
+		return (1);
+	if (ft_strncmp(&map_name[len - 4], ".cub", 4) == 0)
 		return (0);
 	return (1);
 }

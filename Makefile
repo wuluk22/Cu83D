@@ -24,6 +24,7 @@ SRC     = main.c\
 			keymap.c\
 			keymap_utils.c\
 			map.c\
+			map_utils.c\
 			parsing_help.c\
 			parsing_info.c\
 			parsing_map.c\
