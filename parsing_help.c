@@ -28,9 +28,9 @@ void	free_map(char **map)
 
 void	ft_exit(t_map map, char *str, int i)
 {
-	cleanup(map);
 	printf("Error\n");
 	printf("%s", str);
+	cleanup(map);
 	exit(i);
 }
 
