@@ -63,6 +63,21 @@ int	size_fd(char **argv, t_env *e)
 	close(fd);
 	return (i);
 }
+static void cleanup(t_map map)
+{
+	int	i;
+
+	i = 0;
+    while (i < map.map_height)
+	{
+        if (map.map[i])
+            free(map.map[i]);
+		i++;
+    }
+    free(map.map);
+    exit(0);
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -82,12 +97,14 @@ int	main(int argc, char **argv)
 	e.img = mlx_new_image(e.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	e.data = (int *)mlx_get_data_addr(e.img, &e.bpp, &e.sizeline, &e.endian);
 	init(&e);
-	load_map(&e, argv[1]); // a modifier pour avoir avec argument
+	load_map(&e, argv[1]);
 	mlx_hook(e.win, 2, 1L << 0, key_press, &e);
 	mlx_hook(e.win, 3, 1L << 1, key_release, &e);
 	mlx_loop_hook(e.mlx, render_scene, &e);
 	mlx_hook(e.win, 17, 1L << 2, ft_exit_window, &e);
 	mlx_loop(e.mlx);
+	cleanup(map);
+	//system("leaks cub3D");
 	return (0);
 }
 
