@@ -58,10 +58,12 @@ void	move_player(t_env *e)
 	double	move_speed;
 	double	rot_speed;
 
-	move_speed = 0.09;
-	rot_speed = 0.09;
-	move_forward_backward(e, move_speed);
-	move_left_right(e, move_speed);
+	move_speed = 0.07;
+	rot_speed = 0.07;
+	if (e->keys[KEY_W] || e->keys[KEY_S])
+		move_forward_backward(e, move_speed);
+	if (e->keys[KEY_A] || e->keys[KEY_D])
+		move_left_right(e, move_speed);
 	if (e->keys[KEY_LEFT] && !e->keys[KEY_RIGHT])
 		rotate_left(e, rot_speed);
 	if (e->keys[KEY_RIGHT] && !e->keys[KEY_LEFT])

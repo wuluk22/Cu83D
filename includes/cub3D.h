@@ -42,7 +42,7 @@ typedef struct s_map
 	int		**world_map;
 	int		map_height;
 	int		*map_width;
-	char	**map; //alion
+	char	**map;
 	int		x;
 	int		y;
 	int		player;
@@ -111,6 +111,15 @@ int		mouse_hook(int x, int y, t_env *e);
 int		key_press(int keycode, t_env *e);
 int		key_release(int keycode, t_env *e);
 void	move_player(t_env *e);
+//-----------map_utils.c
+void	set_player_position(t_env *e, char direction, int row, int col);
+void	process_character(t_env *e, char c, int row, int col);
+void	parse_line(t_env *e, char *line, int row);
+void	resize_map(t_env *e);
+int		skip_and_open_file(const char *filename, int start_line);
+//-----------map.c
+void	load_map(t_env *e, const char *filename);
+void	display_map(int **map, int map_height, int *map_width);
 //-----------parsing_help.c
 void	ft_exit(t_map map, char *str, int i);
 void	free_map(char **map);
@@ -125,15 +134,6 @@ int		check_inside(t_map *map);
 void	get_map(t_env *e, t_map *map, int fd);
 //-----------parsing.c
 int		parsing(int argc, char **argv, t_map *map, t_env *e);
-//-----------map.c
-void	load_map(t_env *e, const char *filename);
-void	display_map(int **map, int map_height, int *map_width);
-//-----------map_utils.c
-void	set_player_position(t_env *e, char direction, int row, int col);
-void	process_character(t_env *e, char c, int row, int col);
-void	parse_line(t_env *e, char *line, int row);
-void	resize_map(t_env *e);
-int		skip_and_open_file(const char *filename, int start_line);
 //-----------raycasting.c
 void	calculate_step_and_side_dist(t_env *e);
 void	perform_dda(t_env *e);
