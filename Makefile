@@ -6,7 +6,7 @@
 #    By: alion <alion@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 10:03:35 by clegros           #+#    #+#              #
-#    Updated: 2024/09/23 15:34:24 by alion            ###   ########.fr        #
+#    Updated: 2024/09/25 13:05:16 by alion            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRC     = main.c\
 			utils/get_next_line/ft_get_next_line.c\
 			utils/get_next_line/ft_get_next_line_utils.c
 OBJ     = $(SRC:.c=.o)
-CC      = gcc
+CC      = cc
 CFLAGS  = -g -Wall -Werror -Wextra
 DIR_INC = -Iutils/ -I/includes
 LIB_LIB = utils/libft.a

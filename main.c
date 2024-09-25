@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:44 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/24 16:00:45 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/25 13:09:47 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	init(t_env *e)
 	e->map.world_map = NULL;
 }
 
-/*int	size_fd(char **argv, t_map map)
+int	size_fd(char **argv)
 {
 	int		i;
 	int		fd;
@@ -51,7 +51,10 @@ static void	init(t_env *e)
 	i = 1;
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		ft_exit(map, "No fd\n", 0);
+	{
+		printf("Error\nNo fd\n");
+		exit(1);
+	}
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -62,7 +65,7 @@ static void	init(t_env *e)
 	}
 	close(fd);
 	return (i);
-}*/
+}
 
 void	cleanup(t_map map)
 {
@@ -86,8 +89,7 @@ int	main(int argc, char **argv)
 	int		i;
 
 	e.mlx = mlx_init();
-	//i = size_fd(argv, map);
-	i = 10000;
+	i = size_fd(argv);
 	map.map = ft_calloc((i), sizeof(char *)); // a modifier pour la bonne taille aml
 	if (!map.map)
 		ft_exit(map, "Problem with map.map", 0);
