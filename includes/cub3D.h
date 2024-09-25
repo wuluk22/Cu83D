@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:03:26 by clegros           #+#    #+#             */
-/*   Updated: 2024/09/24 16:03:10 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/25 09:20:05 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ void	draw_wall(t_env *e, int x, int y, int color);
 //-----------render.c
 int		create_rgb(int r, int g, int b);
 void	load_texture(t_env *e);
-void	load_image(t_env *e, int *texture, char *path);
+int		load_image(t_env *e, int *texture, char *path);
 int		render_scene(t_env *e);
 
 #endif

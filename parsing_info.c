@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:51:17 by alion             #+#    #+#             */
-/*   Updated: 2024/09/24 16:04:52 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/25 09:21:52 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,16 @@ int	put_texture(char *line, int id, t_env *e, int side)
 		id++;
 	id = id + 2;
 	texture = malloc(sizeof(char) * (ft_strlen(line)));
+	if (!texture)
+		return (1);
 	while (line[id] != '\n')
 		texture[i++] = line[id++];
 	texture[i] = '\0';
-	load_image(e, e->texture[side], texture);
+	if (load_image(e, e->texture[side], texture) != 0)
+	{
+		free(texture);
+		return (1);
+	}
 	free(texture);
 	return (0);
 }
@@ -125,6 +131,8 @@ int	get_info(t_env *e, int fd)
 	{
 		if (get_one_info(line, e, infos) == 0)
 			infos++;
+		else if (get_one_info(line, e, infos) == 1)
+			return (1);
 		free(line);
 		if (infos == 6)
 			break ;
