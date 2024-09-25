@@ -36,6 +36,7 @@
 # define TEXTURE_SOUTH 1
 # define TEXTURE_EAST 2
 # define TEXTURE_WEST 3
+# define E 0.2
 
 typedef struct s_map
 {

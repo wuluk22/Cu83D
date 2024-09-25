@@ -16,20 +16,20 @@ void	move_forward_backward(t_env *e, double moveSpeed)
 {
 	if (e->keys[KEY_W])
 	{
-		if (e->map.world_map[(int)(e->pos_x + e->dir_x * moveSpeed)] \
+		if (e->map.world_map[(int)(e->pos_x + e->dir_x * (moveSpeed + E))] \
 			[(int)(e->pos_y)] == 0)
 			e->pos_x += e->dir_x * moveSpeed;
 		if (e->map.world_map[(int)(e->pos_x)] \
-			[(int)(e->pos_y + e->dir_y * moveSpeed)] == 0)
+			[(int)(e->pos_y + e->dir_y * (moveSpeed + E))] == 0)
 			e->pos_y += e->dir_y * moveSpeed;
 	}
 	if (e->keys[KEY_S])
 	{
-		if (e->map.world_map[(int)(e->pos_x - e->dir_x * moveSpeed)] \
+		if (e->map.world_map[(int)(e->pos_x - e->dir_x * (moveSpeed + E))] \
 			[(int)(e->pos_y)] == 0)
 			e->pos_x -= e->dir_x * moveSpeed;
 		if (e->map.world_map[(int)(e->pos_x)] \
-			[(int)(e->pos_y - e->dir_y * moveSpeed)] == 0)
+			[(int)(e->pos_y - e->dir_y * (moveSpeed + E))] == 0)
 			e->pos_y -= e->dir_y * moveSpeed;
 	}
 }
@@ -38,20 +38,20 @@ void	move_left_right(t_env *e, double moveSpeed)
 {
 	if (e->keys[KEY_A])
 	{
-		if (e->map.world_map[(int)(e->pos_x - e->plane_x * moveSpeed)] \
+		if (e->map.world_map[(int)(e->pos_x - e->plane_x * (moveSpeed + E))] \
 			[(int)(e->pos_y)] == 0)
 			e->pos_x -= e->plane_x * moveSpeed;
 		if (e->map.world_map[(int)(e->pos_x)] \
-			[(int)(e->pos_y - e->plane_y * moveSpeed)] == 0)
+			[(int)(e->pos_y - e->plane_y * (moveSpeed + E))] == 0)
 			e->pos_y -= e->plane_y * moveSpeed;
 	}
 	if (e->keys[KEY_D])
 	{
-		if (e->map.world_map[(int)(e->pos_x + e->plane_x * moveSpeed)] \
+		if (e->map.world_map[(int)(e->pos_x + e->plane_x * (moveSpeed + E))] \
 			[(int)(e->pos_y)] == 0)
 			e->pos_x += e->plane_x * moveSpeed;
 		if (e->map.world_map[(int)(e->pos_x)] \
-			[(int)(e->pos_y + e->plane_y * moveSpeed)] == 0)
+			[(int)(e->pos_y + e->plane_y * (moveSpeed + E))] == 0)
 			e->pos_y += e->plane_y * moveSpeed;
 	}
 }

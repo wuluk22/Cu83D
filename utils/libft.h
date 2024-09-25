@@ -68,15 +68,15 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*d)(void *));
 
 //Fonction pour ft_printf - Alion
-int		ft_hexa(unsigned int nbr, const char str);
-int		ft_percent(void);
-int		ft_printchar(int c);
-int		ft_printnbr(int n);
-int		ft_printstr(char *str);
-int		ft_ptr(unsigned long long str);
-int		ft_putnbr_pos(unsigned int n);
-char	*ft_strdup(const char *s);
-int		ft_uitoa(unsigned int n);
-int		ft_printf(const char *str, ...);
+int				ft_hexa(unsigned int nbr, const char str);
+int				ft_percent(void);
+int				ft_printchar(int c);
+int				ft_printnbr(int n);
+int				ft_printstr(char *str);
+int				ft_ptr(unsigned long long str);
+int				ft_putnbr_pos(unsigned int n);
+char			*ft_strdup(const char *s);
+int				ft_uitoa(unsigned int n);
+int				ft_printf(const char *str, ...);
 
 #endif
