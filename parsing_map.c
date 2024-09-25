@@ -118,7 +118,6 @@ void	get_map(t_env *e, t_map *map, int fd)
 		e->i++;
 	}
 	map->map[map->y] = line;
-	printf("%s", map->map[map->y]);
 	while (1)
 	{
 		map->y++;
@@ -126,11 +125,9 @@ void	get_map(t_env *e, t_map *map, int fd)
 		if (!map->map[map->y])
 			break ;
 		map->map[map->y][ft_strlen(map->map[map->y]) + 1] = '\n';
-		printf("%s", map->map[map->y]);
 		length_of_a_line = (int)(ft_strlen(map->map[map->y]));
 		if (length_of_a_line > map->x_map_size)
 			map->x_map_size = length_of_a_line;
 	}
 	map->y_map_size = map->y;
-	printf("%d", map->y_map_size);
 }

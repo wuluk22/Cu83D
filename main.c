@@ -12,13 +12,13 @@
 
 #include "includes/cub3D.h"
 
-int ft_exit_window(t_env *e)
+int	ft_exit_window(t_env *e)
 {
-    if (e->img)
-        mlx_destroy_image(e->mlx, e->img);
-    if (e->win)
-        mlx_destroy_window(e->mlx, e->win);
-    exit(1);
+	if (e->img)
+		mlx_destroy_image(e->mlx, e->img);
+	if (e->win)
+		mlx_destroy_window(e->mlx, e->win);
+	exit(1);
 }
 
 static void	init(t_env *e)
@@ -41,7 +41,8 @@ static void	init(t_env *e)
 	e->map.map_width = NULL;
 	e->map.world_map = NULL;
 }
-int	size_fd(char ** argv, t_env *e)
+
+int	size_fd(char **argv, t_env *e)
 {
 	int		i;
 	int		fd;
@@ -82,15 +83,13 @@ int	main(int argc, char **argv)
 	e.data = (int *)mlx_get_data_addr(e.img, &e.bpp, &e.sizeline, &e.endian);
 	init(&e);
 	load_map(&e, argv[1]); // a modifier pour avoir avec argument
-	display_map(e.map.world_map, e.map.map_height, e.map.map_width);
-//	load_texture(&e);
 	mlx_hook(e.win, 2, 1L << 0, key_press, &e);
 	mlx_hook(e.win, 3, 1L << 1, key_release, &e);
-	//mlx_hook(e.win, 6, 0, mouse_hook, &e);
 	mlx_loop_hook(e.mlx, render_scene, &e);
-	 mlx_hook(e.win, 17, 1L << 2, ft_exit_window, &e);
+	mlx_hook(e.win, 17, 1L << 2, ft_exit_window, &e);
 	mlx_loop(e.mlx);
-	//mlx_mouse_hide(e.mlx, e.win);
-	//printf("-----%f------%f\n", e.pos_x, e.pos_y);
 	return (0);
 }
+
+	//mlx_hook(e.win, 6, 0, mouse_hook, &e);
+	//mlx_mouse_hide(e.mlx, e.win);

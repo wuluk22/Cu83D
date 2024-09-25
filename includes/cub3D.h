@@ -124,9 +124,15 @@ int		check_inside(t_map *map);
 void	get_map(t_env *e, t_map *map, int fd);
 //-----------parsing.c
 int		parsing(int argc, char **argv, t_map *map, t_env *e);
-//-----------raycasting.c
+//-----------map.c
 void	load_map(t_env *e, const char *filename);
 void	display_map(int **map, int map_height, int *map_width);
+//-----------map_utils.c
+void	set_player_position(t_env *e, char direction, int row, int col);
+void	process_character(t_env *e, char c, int row, int col);
+void	parse_line(t_env *e, char *line, int row);
+void	resize_map(t_env *e);
+int		skip_and_open_file(const char *filename, int start_line);
 //-----------raycasting.c
 void	calculate_step_and_side_dist(t_env *e);
 void	perform_dda(t_env *e);
