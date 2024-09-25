@@ -40,6 +40,14 @@ SRCS	= ft_strrchr.c\
 		  ft_strdup.c\
 		  ft_substr.c\
 		  ft_putchar_fd.c\
+		  ft_hexa.c\
+		  ft_percent.c\
+		  ft_printchar.c\
+		  ft_printnbr.c\
+		  ft_printstr.c\
+		  ft_ptr.c\
+		  ft_putnbr_pos.c\
+		  libftprintf.c\
 		  ft_isspace.c
 OBJS	= ${SRCS:.c=.o}
 INCS	= includes

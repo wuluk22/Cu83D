@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:06:26 by alion             #+#    #+#             */
-/*   Updated: 2024/09/24 16:01:43 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/25 14:01:32 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	free_map(char **map)
 
 void	ft_exit(t_map map, char *str, int i)
 {
-	printf("Error\n");
-	printf("%s", str);
+	ft_printf("Error\n");
+	ft_printf("%s", str);
 	cleanup(map);
 	exit(i);
 }

@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 18:18:58 by alion             #+#    #+#             */
-/*   Updated: 2024/09/24 16:05:38 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/25 15:07:58 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,15 +107,14 @@ void	get_map(t_env *e, t_map *map, int fd)
 	int		length_of_a_line;
 	char	*line;
 
-	(void)e;
-	map->y = 0;
-	map->x_map_size = 0;
 	line = get_next_line(fd);
-	while (line[0] == '\n')
+	while (line && line[0] == '\n')
 	{
 		line = get_next_line(fd);
 		e->i++;
 	}
+	if (!line)
+		ft_exit(*map, "No map", 1);
 	map->map[map->y] = line;
 	while (1)
 	{
