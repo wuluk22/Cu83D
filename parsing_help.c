@@ -6,7 +6,7 @@
 /*   By: alion <alion@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:06:26 by alion             #+#    #+#             */
-/*   Updated: 2024/09/25 14:01:32 by alion            ###   ########.fr       */
+/*   Updated: 2024/09/26 09:20:54 by alion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_name(char *map_name)
 	int	len;
 
 	len = ft_strlen(map_name);
-	if (len < 4)
+	if (len < 5)
 		return (1);
 	if (ft_strncmp(&map_name[len - 4], ".cub", 4) == 0)
 		return (0);
